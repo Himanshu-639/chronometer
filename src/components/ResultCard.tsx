@@ -1,17 +1,16 @@
 'use client';
 
-// ─── Result Card ──────────────────────────────────────────────────────────────
-// Shown after guess is submitted. Animates score counter, reveals answer,
-// shows curator note, and provides one-click share.
+// ─── Result Card (Daily Mode) ────────────────────────────────────────────────
+// Displays player score, delta, acoustic context, curator note,
+// live countdown timer until tomorrow's puzzle, and share actions.
 
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { generateShareText, copyToClipboard } from '@/lib/share';
 import { deltaLabel } from '@/lib/scoring';
 import { getEraContext } from '@/lib/clue-engine';
+import { getTimeUntilMidnight } from '@/lib/puzzle';
 import type { ScoreResult } from '@/types/puzzle';
-
-// ── Props ─────────────────────────────────────────────────────────────────────
 
 interface ResultCardProps {
   puzzleId: number;
@@ -22,11 +21,7 @@ interface ResultCardProps {
   source: string;
   score: ScoreResult;
   usedSpectrogram: boolean;
-  onPlayAgainTomorrow?: () => void;
-  onNextSample?: () => void;
-  onRandomSample?: () => void;
-  sampleNumber?: number;
-  totalSamples?: number;
+  onHomeClick?: () => void;
 }
 
 // ── Score Ticker ──────────────────────────────────────────────────────────────
@@ -40,7 +35,6 @@ function useCountUp(target: number, duration = 1200): number {
     const tick = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCurrent(Math.round(target * eased));
       if (progress < 1) rafRef.current = requestAnimationFrame(tick);
@@ -50,6 +44,35 @@ function useCountUp(target: number, duration = 1200): number {
   }, [target, duration]);
 
   return current;
+}
+
+// ── Live Countdown to Midnight ───────────────────────────────────────────────
+
+function CountdownTimer() {
+  const [time, setTime] = useState({ hours: '00', minutes: '00', seconds: '00' });
+
+  useEffect(() => {
+    setTime(getTimeUntilMidnight());
+    const interval = setInterval(() => {
+      setTime(getTimeUntilMidnight());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div
+      className="p-4 rounded-xl text-center"
+      style={{ backgroundColor: '#080810', border: '1px solid #1e1e30' }}
+    >
+      <div className="text-[11px] uppercase tracking-widest text-[#8888aa] mb-1 flex items-center justify-center gap-1.5">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#39ff14] animate-pulse" />
+        Next Daily Signal In
+      </div>
+      <div className="text-2xl font-mono font-bold text-[#e8e8f0] tracking-wider">
+        {time.hours}:{time.minutes}:{time.seconds}
+      </div>
+    </div>
+  );
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -63,11 +86,7 @@ export default function ResultCard({
   source,
   score,
   usedSpectrogram,
-  onPlayAgainTomorrow,
-  onNextSample,
-  onRandomSample,
-  sampleNumber,
-  totalSamples = 30,
+  onHomeClick,
 }: ResultCardProps) {
   const delta = Math.abs(guessedYear - answerYear);
   const displayScore = useCountUp(score.totalScore);
@@ -105,10 +124,10 @@ export default function ResultCard({
         style={{ backgroundColor: '#13131f', borderBottom: '1px solid #1e1e30' }}
       >
         <span className="text-xs uppercase tracking-widest" style={{ color: '#8888aa' }}>
-          Signal Solved
+          Today's Result
         </span>
         <span className="text-xs font-bold" style={{ color: '#39ff14' }}>
-          Sample #{sampleNumber ?? puzzleId + 1} of {totalSamples}
+          Signal #{puzzleId + 1}
         </span>
       </div>
 
@@ -186,50 +205,37 @@ export default function ResultCard({
           </p>
         </div>
 
+        {/* Next Signal Countdown */}
+        <CountdownTimer />
+
         {/* Actions */}
-        <div className="space-y-3">
-          {onNextSample && (
+        <div className="flex gap-3">
+          <button
+            onClick={handleShare}
+            className="flex-1 py-3.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+            style={{
+              backgroundColor: copied ? 'rgba(57,255,20,0.25)' : 'rgba(57,255,20,0.15)',
+              color: '#39ff14',
+              border: '2px solid #39ff14',
+              boxShadow: '0 0 16px rgba(57,255,20,0.2)',
+            }}
+          >
+            {copied ? '✓ Copied to Clipboard!' : '📋 Share Result'}
+          </button>
+
+          {onHomeClick && (
             <button
-              onClick={onNextSample}
-              className="w-full py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+              onClick={onHomeClick}
+              className="px-4 py-3.5 rounded-xl text-sm font-medium transition-all"
               style={{
-                backgroundColor: 'rgba(57,255,20,0.18)',
-                color: '#39ff14',
-                border: '2px solid #39ff14',
-                boxShadow: '0 0 16px rgba(57,255,20,0.25)',
+                backgroundColor: '#13131f',
+                color: '#8888aa',
+                border: '1px solid #1e1e30',
               }}
             >
-              ▶ Test Next Audio Sample ({((sampleNumber ?? 1) % totalSamples) + 1}/{totalSamples})
+              ← Home
             </button>
           )}
-
-          <div className="flex gap-3">
-            {onRandomSample && (
-              <button
-                onClick={onRandomSample}
-                className="flex-1 py-3 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-1.5"
-                style={{
-                  backgroundColor: '#13131f',
-                  color: '#e8e8f0',
-                  border: '1px solid #2a2a40',
-                }}
-              >
-                🎲 Random Sample
-              </button>
-            )}
-
-            <button
-              onClick={handleShare}
-              className="flex-1 py-3 rounded-lg text-sm font-medium transition-all"
-              style={{
-                backgroundColor: copied ? 'rgba(57,255,20,0.2)' : 'rgba(57,255,20,0.08)',
-                color: '#39ff14',
-                border: '1px solid rgba(57,255,20,0.2)',
-              }}
-            >
-              {copied ? '✓ Copied!' : '📋 Share Result'}
-            </button>
-          </div>
         </div>
 
       </div>

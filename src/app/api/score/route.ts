@@ -1,6 +1,6 @@
 // ─── POST /api/score ──────────────────────────────────────────────────────────
-// Validates guess server-side and returns score + answer.
-// Strictly uses local synthetic puzzle dataset (zero network/internet dependencies).
+// Validates guess server-side, calculates score, caches result for the day,
+// and returns answer + score. One submission per user/device per day.
 
 import { NextRequest, NextResponse } from 'next/server';
 import * as fs from 'fs';
@@ -14,7 +14,6 @@ interface ScoreRequest {
   usedSpectrogram: boolean;
   timeTaken: number;
   deviceId: string;
-  isPractice?: boolean;
 }
 
 interface ScoreResponse {
@@ -30,6 +29,9 @@ const DEV_ANSWER: PuzzleAnswer = {
   source: 'Acoustic Chronometer Historical Archive',
 };
 
+// In-memory daily submission cache (deviceId:puzzleId -> ScoreResponse)
+const dailyCache = new Map<string, ScoreResponse>();
+
 export async function POST(request: NextRequest) {
   let body: ScoreRequest;
   try {
@@ -38,10 +40,17 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
 
-  const { puzzleId, guessedYear, usedSpectrogram } = body;
+  const { puzzleId, guessedYear, usedSpectrogram, deviceId } = body;
 
   if (typeof guessedYear !== 'number' || guessedYear < 1920 || guessedYear > 2024) {
     return NextResponse.json({ error: 'guessedYear out of range' }, { status: 400 });
+  }
+
+  const userKey = `${deviceId || 'anon'}:${puzzleId}`;
+
+  // If already submitted for today, return the original score
+  if (dailyCache.has(userKey)) {
+    return NextResponse.json(dailyCache.get(userKey)!);
   }
 
   let answerToUse = DEV_ANSWER;
@@ -50,14 +59,17 @@ export async function POST(request: NextRequest) {
     const manifestPath = path.join(process.cwd(), 'public', 'puzzles.json');
     if (fs.existsSync(manifestPath)) {
       const list = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-      const match = list.find((p: any) => p.id === puzzleId) || list[0];
-      if (match) {
-        answerToUse = {
-          answerYear: match.answerYear,
-          answerDecade: match.answerDecade,
-          curatorNote: match.curatorNote,
-          source: match.source,
-        };
+      if (Array.isArray(list) && list.length > 0) {
+        // Match today's deterministic sample
+        const match = list[puzzleId % list.length];
+        if (match) {
+          answerToUse = {
+            answerYear: match.answerYear,
+            answerDecade: match.answerDecade,
+            curatorNote: match.curatorNote,
+            source: match.source,
+          };
+        }
       }
     }
   } catch (err) {
@@ -66,5 +78,9 @@ export async function POST(request: NextRequest) {
 
   const score = calculateScore(guessedYear, answerToUse.answerYear, usedSpectrogram);
   const response: ScoreResponse = { answer: answerToUse, score };
+
+  // Remember the user's score for today
+  dailyCache.set(userKey, response);
+
   return NextResponse.json(response);
 }

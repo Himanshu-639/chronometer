@@ -37,3 +37,22 @@ export function getTodaysDateString(): string {
 export function getPuzzleLabel(puzzleId: number): string {
   return `#${puzzleId + 1}`;
 }
+
+/**
+ * Returns hours, minutes, seconds remaining until midnight local time.
+ */
+export function getTimeUntilMidnight(): { hours: string; minutes: string; seconds: string } {
+  const now = new Date();
+  const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  const diff = Math.max(0, midnight.getTime() - now.getTime());
+
+  const h = Math.floor(diff / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+  return {
+    hours: String(h).padStart(2, '0'),
+    minutes: String(m).padStart(2, '0'),
+    seconds: String(s).padStart(2, '0'),
+  };
+}

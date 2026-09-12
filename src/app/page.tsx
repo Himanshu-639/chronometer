@@ -5,7 +5,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { getTodaysPuzzleId, getPuzzleLabel } from '@/lib/puzzle';
+import { getTodaysPuzzleId, getTodaysDateString, getPuzzleLabel, getTimeUntilMidnight } from '@/lib/puzzle';
 
 // ── Idle Waveform Animation ───────────────────────────────────────────────────
 
@@ -35,10 +35,18 @@ export default function LandingPage() {
   const router = useRouter();
   const puzzleId = getTodaysPuzzleId();
   const [alreadyPlayed, setAlreadyPlayed] = useState(false);
+  const [countdown, setCountdown] = useState({ hours: '00', minutes: '00', seconds: '00' });
 
   useEffect(() => {
-    const saved = localStorage.getItem(`ac_result_${puzzleId}`);
+    const todayDate = getTodaysDateString();
+    const saved = localStorage.getItem(`ac_daily_${todayDate}`) || localStorage.getItem(`ac_result_${puzzleId}`);
     setAlreadyPlayed(!!saved);
+
+    setCountdown(getTimeUntilMidnight());
+    const interval = setInterval(() => {
+      setCountdown(getTimeUntilMidnight());
+    }, 1000);
+    return () => clearInterval(interval);
   }, [puzzleId]);
 
   const handlePlay = () => {
@@ -59,14 +67,14 @@ export default function LandingPage() {
             textShadow: '0 0 30px rgba(57,255,20,0.4)',
           }}
         >
-          ACOUSTIC<br className="sm:hidden" /> CHRONOMETER
+          ACOUSTIC CHRONOMETER
         </h1>
-        <p className="text-sm uppercase tracking-widest mt-3" style={{ color: '#444466' }}>
-          Audio archaeology · Daily puzzle
+        <p className="text-sm tracking-widest uppercase" style={{ color: '#8888aa' }}>
+          Daily Audio Signal Deduction Puzzle
         </p>
       </div>
 
-      {/* Waveform */}
+      {/* Waveform idle animation */}
       <div className="mb-10">
         <IdleWaveform />
       </div>
@@ -76,7 +84,7 @@ export default function LandingPage() {
         className="mb-8 px-4 py-2 rounded-lg text-sm"
         style={{ backgroundColor: '#0f0f1a', border: '1px solid #1e1e30', color: '#8888aa' }}
       >
-        Today's puzzle: <span style={{ color: '#e8e8f0', fontWeight: 600 }}>{getPuzzleLabel(puzzleId)}</span>
+        Today's signal: <span style={{ color: '#e8e8f0', fontWeight: 600 }}>{getPuzzleLabel(puzzleId)}</span>
       </div>
 
       {/* Description */}
@@ -95,31 +103,37 @@ export default function LandingPage() {
       {alreadyPlayed ? (
         <div className="text-center space-y-4">
           <div
-            className="px-6 py-3 rounded-lg text-sm"
-            style={{ backgroundColor: 'rgba(57,255,20,0.08)', border: '1px solid rgba(57,255,20,0.2)', color: '#39ff14' }}
+            className="px-6 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2"
+            style={{ backgroundColor: 'rgba(57,255,20,0.1)', border: '1px solid rgba(57,255,20,0.25)', color: '#39ff14' }}
           >
-            ✓ You've already played today's puzzle
+            <span>✓ Completed for Today</span>
           </div>
+
           <button
             onClick={handlePlay}
-            className="text-sm underline"
-            style={{ color: '#8888aa' }}
+            className="w-full px-8 py-3.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all"
+            style={{
+              backgroundColor: '#13131f',
+              color: '#e8e8f0',
+              border: '1px solid #2a2a40',
+            }}
           >
-            View results
+            View Today's Result →
           </button>
-          <p className="text-xs" style={{ color: '#444466' }}>
-            Next puzzle drops at midnight
+
+          <p className="text-xs font-mono" style={{ color: '#8888aa' }}>
+            Next signal in: <span style={{ color: '#39ff14' }}>{countdown.hours}:{countdown.minutes}:{countdown.seconds}</span>
           </p>
         </div>
       ) : (
         <button
           onClick={handlePlay}
-          className="relative px-10 py-4 rounded-lg text-base font-bold uppercase tracking-widest transition-all duration-200 hover:scale-105 active:scale-95"
+          className="relative px-10 py-4 rounded-xl text-base font-bold uppercase tracking-widest transition-all duration-200 hover:scale-105 active:scale-95"
           style={{
-            backgroundColor: 'rgba(57,255,20,0.12)',
+            backgroundColor: 'rgba(57,255,20,0.15)',
             color: '#39ff14',
             border: '2px solid #39ff14',
-            boxShadow: '0 0 20px rgba(57,255,20,0.2)',
+            boxShadow: '0 0 24px rgba(57,255,20,0.25)',
           }}
         >
           Begin Listening →

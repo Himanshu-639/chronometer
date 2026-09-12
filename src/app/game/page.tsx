@@ -1,14 +1,13 @@
 'use client';
 
-// ─── Main Game Screen ─────────────────────────────────────────────────────────
-// Supports:
-//   - Daily Mode (Wordle-style daily puzzle)
-//   - Practice / Test Mode with 30 diverse historical era audio samples
-//   - Direct sample navigation ([◀ Prev], [Next ▶], [🎲 Random])
-//   - Instant reset and multi-audio testing
+// ─── Main Game Screen (Daily Mode) ────────────────────────────────────────────
+// Exactly ONE audio puzzle per day.
+// Deterministic daily puzzle served across all clients.
+// Saves user completion to localStorage — locks in today's score and
+// shows live countdown until the next signal.
 
-import { useEffect, useRef, useState, useCallback, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import SpectrogramViewer from '@/components/SpectrogramViewer';
 import AudioPlayer from '@/components/AudioPlayer';
@@ -18,7 +17,7 @@ import ResultCard from '@/components/ResultCard';
 import Leaderboard from '@/components/Leaderboard';
 import { loadAudioBuffer, analyseAudioBuffer } from '@/lib/audio-analysis';
 import { getUnlockedClues } from '@/lib/clue-engine';
-import { getTodaysPuzzleId } from '@/lib/puzzle';
+import { getTodaysPuzzleId, getTodaysDateString, getPuzzleLabel } from '@/lib/puzzle';
 import type { Puzzle, PuzzleAnswer, ScoreResult } from '@/types/puzzle';
 
 function getOrCreateDeviceId(): string {
@@ -32,21 +31,17 @@ function getOrCreateDeviceId(): string {
   return id;
 }
 
-function GameContent() {
+export default function GamePage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const puzzleId = getTodaysPuzzleId();
+  const todayDate = getTodaysDateString();
 
   // ── State ───────────────────────────────────────────────────────────────────
-  const [currentSampleId, setCurrentSampleId] = useState<number>(() => {
-    const p = searchParams.get('sample');
-    return p !== null ? parseInt(p, 10) : 0;
-  });
-
   const [puzzle, setPuzzle] = useState<Puzzle | null>(null);
   const [audioBuffer, setAudioBuffer] = useState<AudioBuffer | null>(null);
   const [staticFrames, setStaticFrames] = useState<Float32Array[] | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const [isLoadingAudio, setIsLoadingAudio] = useState(false);
+  const [isLoadingAudio, setIsLoadingAudio] = useState(true);
 
   const [selectedYear, setSelectedYear] = useState(1975);
   const [guessCount, setGuessCount] = useState(0);
@@ -64,72 +59,59 @@ function GameContent() {
   const startTimeRef = useRef<number>(Date.now());
   const deviceId = useRef<string>('');
 
-  // ── Load Puzzle by ID or Random ─────────────────────────────────────────────
+  // ── Initialize & Check Daily Completion ─────────────────────────────────────
 
-  const loadPuzzle = useCallback(async (sampleId: number | 'random') => {
-    setIsLoadingAudio(true);
-    setLoadError(null);
-    setIsComplete(false);
-    setAnswer(null);
-    setScoreResult(null);
-    setLiveAnalyser(null);
-    setSelectedYear(1975);
-    setGuessCount(0);
-    setUsedSpectrogram(false);
-    setShowAnnotations(false);
-    startTimeRef.current = Date.now();
-
-    try {
-      const url = sampleId === 'random'
-        ? `/api/puzzle?random=true`
-        : `/api/puzzle?id=${sampleId}`;
-
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`Puzzle load failed (${res.status})`);
-      const data: Puzzle = await res.json();
-
-      setPuzzle(data);
-      setCurrentSampleId(data.id);
-
-      // Load and decode audio with 5s slice offset
-      const buf = await loadAudioBuffer(data.audioUrl, data.audioStartOffset ?? 0, 5);
-      setAudioBuffer(buf);
-
-      // Offline spectrogram analysis
-      analyseAudioBuffer(buf).then((analysis) => {
-        setStaticFrames(analysis.timeFrames);
-      });
-    } catch (err) {
-      console.error(err);
-      setLoadError('Failed to load audio. Please try another sample.');
-    } finally {
-      setIsLoadingAudio(false);
-    }
-  }, []);
-
-  // Initial load
   useEffect(() => {
     deviceId.current = getOrCreateDeviceId();
-    loadPuzzle(currentSampleId);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    startTimeRef.current = Date.now();
 
-  // ── Navigation Handlers ─────────────────────────────────────────────────────
+    // 1. Check if user already solved today's puzzle
+    const saved = localStorage.getItem(`ac_daily_${todayDate}`) || localStorage.getItem(`ac_result_${puzzleId}`);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed.answer && parsed.score) {
+          setAnswer(parsed.answer);
+          setScoreResult(parsed.score);
+          if (parsed.selectedYear) setSelectedYear(parsed.selectedYear);
+          if (parsed.usedSpectrogram) setUsedSpectrogram(parsed.usedSpectrogram);
+          setIsComplete(true);
+        }
+      } catch (e) {
+        console.warn('Corrupted local save:', e);
+      }
+    }
 
-  const totalPuzzles = puzzle?.totalPuzzles ?? 30;
+    // 2. Fetch today's single deterministic puzzle
+    fetch(`/api/puzzle?date=${todayDate}`)
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then(async (data: Puzzle) => {
+        setPuzzle(data);
+        // Load audio (slices 5s from offset in-memory)
+        try {
+          const buf = await loadAudioBuffer(data.audioUrl, data.audioStartOffset ?? 0, 5);
+          setAudioBuffer(buf);
 
-  const handleNext = () => {
-    const nextId = (currentSampleId + 1) % totalPuzzles;
-    loadPuzzle(nextId);
-  };
-
-  const handlePrev = () => {
-    const prevId = (currentSampleId - 1 + totalPuzzles) % totalPuzzles;
-    loadPuzzle(prevId);
-  };
-
-  const handleRandom = () => {
-    loadPuzzle('random');
-  };
+          // Precompute static spectrogram
+          analyseAudioBuffer(buf).then((analysis) => {
+            setStaticFrames(analysis.timeFrames);
+          });
+        } catch (err) {
+          console.error(err);
+          setLoadError('Failed to decode today\'s audio. Please refresh to try again.');
+        } finally {
+          setIsLoadingAudio(false);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoadError('Failed to load today\'s puzzle signal.');
+        setIsLoadingAudio(false);
+      });
+  }, [puzzleId, todayDate]);
 
   // ── Toggle annotation mode ──────────────────────────────────────────────────
 
@@ -158,24 +140,36 @@ function GameContent() {
           usedSpectrogram,
           timeTaken,
           deviceId: deviceId.current,
-          isPractice: true, // Allows multiple test submissions
         }),
       });
 
-      if (!res.ok) throw new Error(`Score submit failed: ${res.status}`);
+      if (!res.ok) throw new Error(`Score submission failed (${res.status})`);
 
       const { answer: a, score: s } = await res.json() as { answer: PuzzleAnswer; score: ScoreResult };
       setAnswer(a);
       setScoreResult(s);
       setIsComplete(true);
       setGuessCount((c) => c + 1);
+
+      // Save user completion for today so they cannot re-play today
+      const payload = {
+        puzzleId: puzzle.id,
+        todayDate,
+        answer: a,
+        score: s,
+        selectedYear,
+        usedSpectrogram,
+        completedAt: new Date().toISOString(),
+      };
+      localStorage.setItem(`ac_daily_${todayDate}`, JSON.stringify(payload));
+      localStorage.setItem(`ac_result_${puzzle.id}`, JSON.stringify(payload));
     } catch (err) {
       console.error(err);
-      alert('Something went wrong submitting your score. Please try again.');
+      alert('Error submitting your deduction. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
-  }, [puzzle, isSubmitting, isComplete, selectedYear, usedSpectrogram]);
+  }, [puzzle, isSubmitting, isComplete, selectedYear, usedSpectrogram, todayDate]);
 
   const unlockedClues = puzzle ? getUnlockedClues(puzzle.clues, guessCount) : [];
 
@@ -203,63 +197,10 @@ function GameContent() {
           ACOUSTIC CHRONOMETER
         </h1>
 
-        <div className="flex items-center gap-1.5 text-xs" style={{ color: '#8888aa' }}>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#39ff14] animate-pulse" />
-          <span>TEST MODE</span>
-        </div>
+        <span className="text-xs font-mono font-bold" style={{ color: '#8888aa' }}>
+          {getPuzzleLabel(puzzleId)}
+        </span>
       </header>
-
-      {/* ── Sample Navigation Bar ── */}
-      <div
-        className="w-full max-w-2xl px-4 py-3 rounded-xl flex items-center justify-between flex-wrap gap-2"
-        style={{ backgroundColor: '#0f0f1a', border: '1px solid #1e1e30' }}
-      >
-        <div className="flex items-center gap-2">
-          <button
-            onClick={handlePrev}
-            disabled={isLoadingAudio}
-            className="px-2.5 py-1 rounded text-xs font-semibold transition-all hover:bg-[#1e1e30] disabled:opacity-30"
-            style={{ border: '1px solid #2a2a40', color: '#e8e8f0' }}
-            title="Previous sample"
-          >
-            ◀ Prev
-          </button>
-
-          <span className="text-xs font-mono font-bold" style={{ color: '#39ff14' }}>
-            Sample #{currentSampleId + 1} of {totalPuzzles}
-          </span>
-
-          <button
-            onClick={handleNext}
-            disabled={isLoadingAudio}
-            className="px-2.5 py-1 rounded text-xs font-semibold transition-all hover:bg-[#1e1e30] disabled:opacity-30"
-            style={{ border: '1px solid #2a2a40', color: '#e8e8f0' }}
-            title="Next sample"
-          >
-            Next ▶
-          </button>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={handleRandom}
-            disabled={isLoadingAudio}
-            className="px-3 py-1 rounded text-xs font-medium transition-all hover:bg-[#1e1e30] disabled:opacity-30"
-            style={{ border: '1px solid #2a2a40', color: '#8888aa' }}
-          >
-            🎲 Random Audio
-          </button>
-
-          {isComplete && (
-            <button
-              onClick={() => loadPuzzle(currentSampleId)}
-              className="px-2.5 py-1 rounded text-xs font-medium text-[#39ff14] bg-[rgba(57,255,20,0.1)] border border-[rgba(57,255,20,0.3)]"
-            >
-              ↻ Retry This
-            </button>
-          )}
-        </div>
-      </div>
 
       <div className="w-full max-w-2xl space-y-6">
 
@@ -296,16 +237,16 @@ function GameContent() {
         >
           {isLoadingAudio ? (
             <div className="py-6 text-center text-xs animate-pulse" style={{ color: '#39ff14' }}>
-              Loading audio sample #{currentSampleId + 1}…
+              Loading today's acoustic signal…
             </div>
           ) : loadError ? (
             <div className="py-4 text-center">
               <p className="text-xs text-[#ff3860] mb-2">{loadError}</p>
               <button
-                onClick={handleNext}
+                onClick={() => window.location.reload()}
                 className="px-3 py-1 rounded text-xs bg-[#1e1e30] text-[#e8e8f0]"
               >
-                Skip to Next Sample ▶
+                Reload
               </button>
             </div>
           ) : (
@@ -321,7 +262,7 @@ function GameContent() {
         <AnimatePresence mode="wait">
           {!isComplete ? (
             <motion.div
-              key={`game-${currentSampleId}`}
+              key="game-active"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -354,7 +295,7 @@ function GameContent() {
                   boxShadow: '0 0 20px rgba(57,255,20,0.15)',
                 }}
               >
-                {isSubmitting ? 'Evaluating…' : `Lock In: ${selectedYear}`}
+                {isSubmitting ? 'Evaluating Signal…' : `Lock In: ${selectedYear}`}
               </button>
 
               {/* Clues */}
@@ -362,7 +303,7 @@ function GameContent() {
             </motion.div>
           ) : (
             <motion.div
-              key={`result-${currentSampleId}`}
+              key="game-completed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
@@ -370,7 +311,7 @@ function GameContent() {
               {/* Result Card */}
               {answer && scoreResult && (
                 <ResultCard
-                  puzzleId={currentSampleId}
+                  puzzleId={puzzleId}
                   guessedYear={selectedYear}
                   answerYear={answer.answerYear}
                   answerDecade={answer.answerDecade}
@@ -378,10 +319,7 @@ function GameContent() {
                   source={answer.source}
                   score={scoreResult}
                   usedSpectrogram={usedSpectrogram}
-                  sampleNumber={currentSampleId + 1}
-                  totalSamples={totalPuzzles}
-                  onNextSample={handleNext}
-                  onRandomSample={handleRandom}
+                  onHomeClick={() => router.push('/')}
                 />
               )}
 
@@ -409,19 +347,5 @@ function GameContent() {
 
       </div>
     </main>
-  );
-}
-
-export default function GamePage() {
-  return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen flex items-center justify-center bg-[#080810] text-[#39ff14] text-xs font-mono">
-          Loading Acoustic Chronometer…
-        </div>
-      }
-    >
-      <GameContent />
-    </Suspense>
   );
 }
