@@ -1,0 +1,512 @@
+[
+  {
+    "id": 0,
+    "puzzleDate": "2026-09-12",
+    "audioUrl": "/audio/real/archival-1.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2009,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"50Hz hum square.ogg\". Preserved under Public domain license. Source: BPK.",
+    "source": "Wikimedia Commons — BPK (Public domain)",
+    "clues": [
+      "Original real-world recording: \"50Hz hum square\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2009 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 1,
+    "puzzleDate": "2026-09-13",
+    "audioUrl": "/audio/real/archival-2.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2009,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"60Hz hum square.ogg\". Preserved under Public domain license. Source: BPK.",
+    "source": "Wikimedia Commons — BPK (Public domain)",
+    "clues": [
+      "Original real-world recording: \"60Hz hum square\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2009 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 2,
+    "puzzleDate": "2026-09-14",
+    "audioUrl": "/audio/real/archival-3.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2009,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"400Hz hum square.ogg\". Preserved under Public domain license. Source: BPK.",
+    "source": "Wikimedia Commons — BPK (Public domain)",
+    "clues": [
+      "Original real-world recording: \"400Hz hum square\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2009 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 3,
+    "puzzleDate": "2026-09-15",
+    "audioUrl": "/audio/real/archival-4.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2009,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Audio Tutorial - Raw recording of Matras.ogg\". Preserved under CC BY-SA 3.0 license. Source: Edvvc.",
+    "source": "Wikimedia Commons — Edvvc (CC BY-SA 3.0)",
+    "clues": [
+      "Original real-world recording: \"Audio Tutorial - Raw recording of Matras\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2009 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 4,
+    "puzzleDate": "2026-09-16",
+    "audioUrl": "/audio/real/archival-5.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2009,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Audio Tutorial - Matra MS10.ogg\". Preserved under CC BY-SA 3.0 license. Source: Edvvc.",
+    "source": "Wikimedia Commons — Edvvc (CC BY-SA 3.0)",
+    "clues": [
+      "Original real-world recording: \"Audio Tutorial - Matra MS10\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2009 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 5,
+    "puzzleDate": "2026-09-17",
+    "audioUrl": "/audio/real/archival-6.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2007,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"A small orange excavator shoveling gravel.ogg\". Preserved under CC BY-SA 3.0 license. Source: T.Voekler.",
+    "source": "Wikimedia Commons — T.Voekler (CC BY-SA 3.0)",
+    "clues": [
+      "Original real-world recording: \"A small orange excavator shoveling gravel\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2007 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 6,
+    "puzzleDate": "2026-09-18",
+    "audioUrl": "/audio/real/archival-7.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 1.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 1\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 7,
+    "puzzleDate": "2026-09-19",
+    "audioUrl": "/audio/real/archival-8.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 2.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 2\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 8,
+    "puzzleDate": "2026-09-20",
+    "audioUrl": "/audio/real/archival-9.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 3.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 3\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 9,
+    "puzzleDate": "2026-09-21",
+    "audioUrl": "/audio/real/archival-10.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 4.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 4\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 10,
+    "puzzleDate": "2026-09-22",
+    "audioUrl": "/audio/real/archival-11.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 10.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 10\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 11,
+    "puzzleDate": "2026-09-23",
+    "audioUrl": "/audio/real/archival-12.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 11.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 11\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 12,
+    "puzzleDate": "2026-09-24",
+    "audioUrl": "/audio/real/archival-13.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 12.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 12\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 13,
+    "puzzleDate": "2026-09-25",
+    "audioUrl": "/audio/real/archival-14.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2020,
+    "answerDecade": "2020s",
+    "curatorNote": "Authentic archival sound \"Angle Grinder cutting a steel chain - Soundbite.ogg\". Preserved under CC BY-SA 4.0 license. Source: Pittigrilli.",
+    "source": "Wikimedia Commons — Pittigrilli (CC BY-SA 4.0)",
+    "clues": [
+      "Original real-world recording: \"Angle Grinder cutting a steel chain - Soundbite\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2020s.",
+      "Estimated recording era corresponds to 2020 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 14,
+    "puzzleDate": "2026-09-26",
+    "audioUrl": "/audio/real/archival-15.flac",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2021,
+    "answerDecade": "2020s",
+    "curatorNote": "Authentic archival sound \"Amiga 2000 loading Lotus Turbo Challenge 2 from floppy disk.flac\". Preserved under CC BY-SA 4.0 license. Source: Morn.",
+    "source": "Wikimedia Commons — Morn (CC BY-SA 4.0)",
+    "clues": [
+      "Original real-world recording: \"Amiga 2000 loading Lotus Turbo Challenge 2 from floppy disk\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2020s.",
+      "Estimated recording era corresponds to 2021 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 15,
+    "puzzleDate": "2026-09-27",
+    "audioUrl": "/audio/real/archival-16.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Airport station bulleti.ogg\". Preserved under Public domain license. Source: stephan.",
+    "source": "Wikimedia Commons — stephan (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Airport station bulleti\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 16,
+    "puzzleDate": "2026-09-28",
+    "audioUrl": "/audio/real/archival-17.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 6.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 6\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 17,
+    "puzzleDate": "2026-09-29",
+    "audioUrl": "/audio/real/archival-18.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 8.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 8\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 18,
+    "puzzleDate": "2026-09-30",
+    "audioUrl": "/audio/real/archival-19.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 5.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 5\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 19,
+    "puzzleDate": "2026-10-01",
+    "audioUrl": "/audio/real/archival-20.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Chainsaw 7 0.ogg\". Preserved under Public domain license. Source: ezwa.",
+    "source": "Wikimedia Commons — ezwa (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Chainsaw 7 0\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2008 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 20,
+    "puzzleDate": "2026-10-02",
+    "audioUrl": "/audio/real/archival-21.flac",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2019,
+    "answerDecade": "2010s",
+    "curatorNote": "Authentic archival sound \"Audio track 2019-04-27 13.02.02.flac\". Preserved under CC BY-SA 4.0 license. Source: Tomskyhaha.",
+    "source": "Wikimedia Commons — Tomskyhaha (CC BY-SA 4.0)",
+    "clues": [
+      "Original real-world recording: \"Audio track 2019-04-27 13.02.02\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2010s.",
+      "Estimated recording era corresponds to 2019 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 21,
+    "puzzleDate": "2026-10-03",
+    "audioUrl": "/audio/real/archival-22.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2020,
+    "answerDecade": "2020s",
+    "curatorNote": "Authentic archival sound \"Activa Sound.ogg\". Preserved under CC BY-SA 4.0 license. Source: Aash Gates.",
+    "source": "Wikimedia Commons — Aash Gates (CC BY-SA 4.0)",
+    "clues": [
+      "Original real-world recording: \"Activa Sound\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2020s.",
+      "Estimated recording era corresponds to 2020 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 22,
+    "puzzleDate": "2026-10-04",
+    "audioUrl": "/audio/real/archival-23.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2007,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Alarm or siren.ogg\". Preserved under Public domain license. Source: stephan.",
+    "source": "Wikimedia Commons — stephan (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Alarm or siren\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2007 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 23,
+    "puzzleDate": "2026-10-05",
+    "audioUrl": "/audio/real/archival-24.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2013,
+    "answerDecade": "2010s",
+    "curatorNote": "Authentic archival sound \"Bobbypfeife.ogg\". Preserved under CC BY-SA 3.0 at license. Source: Christoph Waghubinger (Lewenstein).",
+    "source": "Wikimedia Commons — Christoph Waghubinger (Lewenstein) (CC BY-SA 3.0 at)",
+    "clues": [
+      "Original real-world recording: \"Bobbypfeife\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2010s.",
+      "Estimated recording era corresponds to 2013 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 24,
+    "puzzleDate": "2026-10-06",
+    "audioUrl": "/audio/real/archival-25.wav",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2018,
+    "answerDecade": "2010s",
+    "curatorNote": "Authentic archival sound \"Bobbypfeife 2.wav\". Preserved under CC BY-SA 4.0 license. Source: Christoph Waghubinger (Lewenstein).",
+    "source": "Wikimedia Commons — Christoph Waghubinger (Lewenstein) (CC BY-SA 4.0)",
+    "clues": [
+      "Original real-world recording: \"Bobbypfeife 2\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2010s.",
+      "Estimated recording era corresponds to 2018 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 25,
+    "puzzleDate": "2026-10-07",
+    "audioUrl": "/audio/real/archival-26.wav",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2015,
+    "answerDecade": "2010s",
+    "curatorNote": "Authentic archival sound \"AO-85 safe mode beacon.wav\". Preserved under CC0 license. Source: Radio Amateur Satellite Corporation.",
+    "source": "Wikimedia Commons — Radio Amateur Satellite Corporation (CC0)",
+    "clues": [
+      "Original real-world recording: \"AO-85 safe mode beacon\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2010s.",
+      "Estimated recording era corresponds to 2015 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 26,
+    "puzzleDate": "2026-10-08",
+    "audioUrl": "/audio/real/archival-27.wav",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2015,
+    "answerDecade": "2010s",
+    "curatorNote": "Authentic archival sound \"AO-85 transponder mode beacon.wav\". Preserved under CC0 license. Source: Radio Amateur Satellite Corporation.",
+    "source": "Wikimedia Commons — Radio Amateur Satellite Corporation (CC0)",
+    "clues": [
+      "Original real-world recording: \"AO-85 transponder mode beacon\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2010s.",
+      "Estimated recording era corresponds to 2015 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 27,
+    "puzzleDate": "2026-10-09",
+    "audioUrl": "/audio/real/archival-28.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2005,
+    "answerDecade": "2000s",
+    "curatorNote": "Authentic archival sound \"Pocsag-simple-stardado.ogg\". Preserved under CC BY-SA 2.0 de license. Source: Denis Apel.",
+    "source": "Wikimedia Commons — Denis Apel (CC BY-SA 2.0 de)",
+    "clues": [
+      "Original real-world recording: \"Pocsag-simple-stardado\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2000s.",
+      "Estimated recording era corresponds to 2005 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 28,
+    "puzzleDate": "2026-10-10",
+    "audioUrl": "/audio/real/archival-29.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2010,
+    "answerDecade": "2010s",
+    "curatorNote": "Authentic archival sound \"Dnm.ogg\". Preserved under Public domain license. Source: User:Stambouliote.",
+    "source": "Wikimedia Commons — User:Stambouliote (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Dnm\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2010s.",
+      "Estimated recording era corresponds to 2010 based on archival catalog data."
+    ]
+  },
+  {
+    "id": 29,
+    "puzzleDate": "2026-10-11",
+    "audioUrl": "/audio/real/archival-30.ogg",
+    "audioStartOffset": 1,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2012,
+    "answerDecade": "2010s",
+    "curatorNote": "Authentic archival sound \"Luftrüssel.ogg\". Preserved under Public domain license. Source: Flo Sorg.",
+    "source": "Wikimedia Commons — Flo Sorg (Public domain)",
+    "clues": [
+      "Original real-world recording: \"Luftrüssel\".",
+      "Mechanical resonance and ambient signatures place this recording around the 2010s.",
+      "Estimated recording era corresponds to 2012 based on archival catalog data."
+    ]
+  }
+]

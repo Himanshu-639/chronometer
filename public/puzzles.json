@@ -1,0 +1,512 @@
+[
+  {
+    "id": 0,
+    "puzzleDate": "2026-09-12",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-12.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 1945,
+    "answerDecade": "1940s",
+    "curatorNote": "Acoustic ambient capture from 1945. The sharp 4.5kHz ceiling and lacquer disc surface clicks are telltale markers of post-war acetate transcription before magnetic tape became standard.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1945)",
+    "clues": [
+      "The audio cuts off sharply above 4.5kHz — characteristic of lacquer acetate disc recording and carbon microphones.",
+      "A 60Hz transformer hum with audible second harmonic points to North American recording equipment.",
+      "Surface noise and random stylus clicks indicate a direct-to-disc lacquer master transcription."
+    ]
+  },
+  {
+    "id": 1,
+    "puzzleDate": "2026-09-13",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-13.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "medium",
+    "answerYear": 1956,
+    "answerDecade": "1950s",
+    "curatorNote": "Radio broadcast room tone from 1956. Early full-track magnetic tape formulation introduces steady high-frequency hiss, while European 50Hz AC mains power bleeds through the tube preamp stage.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1956)",
+    "clues": [
+      "A pronounced 50Hz fundamental and 100Hz second harmonic indicate European broadcast mains electricity.",
+      "The noise floor rises steeply above 7kHz with steady granular texture — early reel-to-reel magnetic tape.",
+      "A subtle 2.2Hz pitch wobble (flutter) reveals the mechanical capstan drive of a 1950s tape transport."
+    ]
+  },
+  {
+    "id": 2,
+    "puzzleDate": "2026-09-14",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-14.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "easy",
+    "answerYear": 1963,
+    "answerDecade": "1960s",
+    "curatorNote": "Recording studio environment from 1963. Captured through vacuum tube mixing console preamps onto 1/4\" magnetic tape running at 15 ips, producing gentle tape saturation and 50Hz mains leakage.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1963)",
+    "clues": [
+      "A 50Hz mains hum harmonic series is visible on the low end (50Hz, 100Hz, 150Hz).",
+      "The noise floor drops off sharply above 12–13kHz, consistent with 1960s German tape stock formulations.",
+      "Subtle 3Hz flutter sidebands indicate mechanical tape transport speed variations."
+    ]
+  },
+  {
+    "id": 3,
+    "puzzleDate": "2026-09-15",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-15.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 1973,
+    "answerDecade": "1970s",
+    "curatorNote": "Indoor ambient capture from 1973. Ferric cassette tape background with Dolby B companding and 60Hz building electrical resonance through solid-state preamps.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1973)",
+    "clues": [
+      "A 60Hz fundamental is dominant on the low-frequency spectrum, pointing to the Americas.",
+      "The noise floor above 10kHz shows subtle dynamic expansion consistent with Dolby B cassette noise reduction.",
+      "Bandwidth rolls off near 14kHz, matching standard ferric oxide cassette formulations."
+    ]
+  },
+  {
+    "id": 4,
+    "puzzleDate": "2026-09-16",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-16.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 1988,
+    "answerDecade": "1980s",
+    "curatorNote": "Facility room recording from 1988. Digital audio tape (DAT) recording with early 16-bit/44.1kHz anti-aliasing filters and minimal analog hum.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1988)",
+    "clues": [
+      "Flat frequency extension up to 18kHz with no flutter modulation indicates digital audio capture.",
+      "60Hz electrical hum is faint but present at the fundamental frequency.",
+      "A low-level quantisation noise floor at approximately -90dBFS is characteristic of early 16-bit digital PCM recorders."
+    ]
+  },
+  {
+    "id": 5,
+    "puzzleDate": "2026-09-17",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-17.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "easy",
+    "answerYear": 1993,
+    "answerDecade": "1990s",
+    "curatorNote": "Office ambience from 1993. Faint 217Hz TDMA RF pulses from an early 2G mobile phone coupled into the analog audio stage of a MiniDisc or DAT recorder.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1993)",
+    "clues": [
+      "Harmonic interference spikes at 217Hz multiples point to 2G GSM cellular radio transmission burst noise.",
+      "European 50Hz mains cycle is faintly present in background grounding.",
+      "Crisp high-frequency response with absence of tape flutter confirms digital recording era."
+    ]
+  },
+  {
+    "id": 6,
+    "puzzleDate": "2026-09-18",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-18.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 2007,
+    "answerDecade": "2000s",
+    "curatorNote": "Computer workstation environment from 2007. The 120Hz acoustic vibration of a 7200 RPM mechanical hard drive and 1kHz USB polling leakage date this firmly to the desktop PC era.",
+    "source": "Acoustic Chronometer Historical Signal Archive (2007)",
+    "clues": [
+      "A continuous mechanical whine near 120Hz matches a 7200 RPM desktop hard disk drive spindle motor.",
+      "Faint harmonic spikes at exact 1kHz multiples originate from USB bus polling interrupts.",
+      "Very quiet electronic noise floor characteristic of integrated motherboard audio codecs."
+    ]
+  },
+  {
+    "id": 7,
+    "puzzleDate": "2026-09-19",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-19.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "medium",
+    "answerYear": 2015,
+    "answerDecade": "2010s",
+    "curatorNote": "Urban room ambience from 2015. Recorded on a smartphone with dual-microphone noise filtering and high-frequency digital compensation curves.",
+    "source": "Acoustic Chronometer Historical Signal Archive (2015)",
+    "clues": [
+      "Extremely flat digital spectrum extending to 20kHz with virtually zero tape or analog hiss.",
+      "Subtle high-frequency sibilance boost between 6kHz and 8kHz characteristic of MEMS smartphone microphones.",
+      "Near total absence of mains hum reflects modern switching power supplies with active power factor correction."
+    ]
+  },
+  {
+    "id": 8,
+    "puzzleDate": "2026-09-20",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-20.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 1945,
+    "answerDecade": "1940s",
+    "curatorNote": "Acoustic ambient capture from 1945. The sharp 4.5kHz ceiling and lacquer disc surface clicks are telltale markers of post-war acetate transcription before magnetic tape became standard.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1945)",
+    "clues": [
+      "The audio cuts off sharply above 4.5kHz — characteristic of lacquer acetate disc recording and carbon microphones.",
+      "A 60Hz transformer hum with audible second harmonic points to North American recording equipment.",
+      "Surface noise and random stylus clicks indicate a direct-to-disc lacquer master transcription."
+    ]
+  },
+  {
+    "id": 9,
+    "puzzleDate": "2026-09-21",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-21.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "hard",
+    "answerYear": 1959,
+    "answerDecade": "1950s",
+    "curatorNote": "Radio broadcast room tone from 1959. Early full-track magnetic tape formulation introduces steady high-frequency hiss, while European 50Hz AC mains power bleeds through the tube preamp stage.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1959)",
+    "clues": [
+      "A pronounced 50Hz fundamental and 100Hz second harmonic indicate European broadcast mains electricity.",
+      "The noise floor rises steeply above 7kHz with steady granular texture — early reel-to-reel magnetic tape.",
+      "A subtle 2.2Hz pitch wobble (flutter) reveals the mechanical capstan drive of a 1950s tape transport."
+    ]
+  },
+  {
+    "id": 10,
+    "puzzleDate": "2026-09-22",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-22.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "medium",
+    "answerYear": 1960,
+    "answerDecade": "1960s",
+    "curatorNote": "Recording studio environment from 1960. Captured through vacuum tube mixing console preamps onto 1/4\" magnetic tape running at 15 ips, producing gentle tape saturation and 50Hz mains leakage.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1960)",
+    "clues": [
+      "A 50Hz mains hum harmonic series is visible on the low end (50Hz, 100Hz, 150Hz).",
+      "The noise floor drops off sharply above 12–13kHz, consistent with 1960s German tape stock formulations.",
+      "Subtle 3Hz flutter sidebands indicate mechanical tape transport speed variations."
+    ]
+  },
+  {
+    "id": 11,
+    "puzzleDate": "2026-09-23",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-23.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 1974,
+    "answerDecade": "1970s",
+    "curatorNote": "Indoor ambient capture from 1974. Ferric cassette tape background with Dolby B companding and 60Hz building electrical resonance through solid-state preamps.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1974)",
+    "clues": [
+      "A 60Hz fundamental is dominant on the low-frequency spectrum, pointing to the Americas.",
+      "The noise floor above 10kHz shows subtle dynamic expansion consistent with Dolby B cassette noise reduction.",
+      "Bandwidth rolls off near 14kHz, matching standard ferric oxide cassette formulations."
+    ]
+  },
+  {
+    "id": 12,
+    "puzzleDate": "2026-09-24",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-24.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 1985,
+    "answerDecade": "1980s",
+    "curatorNote": "Facility room recording from 1985. Digital audio tape (DAT) recording with early 16-bit/44.1kHz anti-aliasing filters and minimal analog hum.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1985)",
+    "clues": [
+      "Flat frequency extension up to 18kHz with no flutter modulation indicates digital audio capture.",
+      "60Hz electrical hum is faint but present at the fundamental frequency.",
+      "A low-level quantisation noise floor at approximately -90dBFS is characteristic of early 16-bit digital PCM recorders."
+    ]
+  },
+  {
+    "id": 13,
+    "puzzleDate": "2026-09-25",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-25.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "medium",
+    "answerYear": 1991,
+    "answerDecade": "1990s",
+    "curatorNote": "Office ambience from 1991. Faint 217Hz TDMA RF pulses from an early 2G mobile phone coupled into the analog audio stage of a MiniDisc or DAT recorder.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1991)",
+    "clues": [
+      "Harmonic interference spikes at 217Hz multiples point to 2G GSM cellular radio transmission burst noise.",
+      "European 50Hz mains cycle is faintly present in background grounding.",
+      "Crisp high-frequency response with absence of tape flutter confirms digital recording era."
+    ]
+  },
+  {
+    "id": 14,
+    "puzzleDate": "2026-09-26",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-26.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 2009,
+    "answerDecade": "2000s",
+    "curatorNote": "Computer workstation environment from 2009. The 120Hz acoustic vibration of a 7200 RPM mechanical hard drive and 1kHz USB polling leakage date this firmly to the desktop PC era.",
+    "source": "Acoustic Chronometer Historical Signal Archive (2009)",
+    "clues": [
+      "A continuous mechanical whine near 120Hz matches a 7200 RPM desktop hard disk drive spindle motor.",
+      "Faint harmonic spikes at exact 1kHz multiples originate from USB bus polling interrupts.",
+      "Very quiet electronic noise floor characteristic of integrated motherboard audio codecs."
+    ]
+  },
+  {
+    "id": 15,
+    "puzzleDate": "2026-09-27",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-27.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "hard",
+    "answerYear": 2012,
+    "answerDecade": "2010s",
+    "curatorNote": "Urban room ambience from 2012. Recorded on a smartphone with dual-microphone noise filtering and high-frequency digital compensation curves.",
+    "source": "Acoustic Chronometer Historical Signal Archive (2012)",
+    "clues": [
+      "Extremely flat digital spectrum extending to 20kHz with virtually zero tape or analog hiss.",
+      "Subtle high-frequency sibilance boost between 6kHz and 8kHz characteristic of MEMS smartphone microphones.",
+      "Near total absence of mains hum reflects modern switching power supplies with active power factor correction."
+    ]
+  },
+  {
+    "id": 16,
+    "puzzleDate": "2026-09-28",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-28.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 1941,
+    "answerDecade": "1940s",
+    "curatorNote": "Acoustic ambient capture from 1941. The sharp 4.5kHz ceiling and lacquer disc surface clicks are telltale markers of post-war acetate transcription before magnetic tape became standard.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1941)",
+    "clues": [
+      "The audio cuts off sharply above 4.5kHz — characteristic of lacquer acetate disc recording and carbon microphones.",
+      "A 60Hz transformer hum with audible second harmonic points to North American recording equipment.",
+      "Surface noise and random stylus clicks indicate a direct-to-disc lacquer master transcription."
+    ]
+  },
+  {
+    "id": 17,
+    "puzzleDate": "2026-09-29",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-29.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "easy",
+    "answerYear": 1957,
+    "answerDecade": "1950s",
+    "curatorNote": "Radio broadcast room tone from 1957. Early full-track magnetic tape formulation introduces steady high-frequency hiss, while European 50Hz AC mains power bleeds through the tube preamp stage.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1957)",
+    "clues": [
+      "A pronounced 50Hz fundamental and 100Hz second harmonic indicate European broadcast mains electricity.",
+      "The noise floor rises steeply above 7kHz with steady granular texture — early reel-to-reel magnetic tape.",
+      "A subtle 2.2Hz pitch wobble (flutter) reveals the mechanical capstan drive of a 1950s tape transport."
+    ]
+  },
+  {
+    "id": 18,
+    "puzzleDate": "2026-09-30",
+    "audioUrl": "/audio/puzzles/puzzle-2026-09-30.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "hard",
+    "answerYear": 1961,
+    "answerDecade": "1960s",
+    "curatorNote": "Recording studio environment from 1961. Captured through vacuum tube mixing console preamps onto 1/4\" magnetic tape running at 15 ips, producing gentle tape saturation and 50Hz mains leakage.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1961)",
+    "clues": [
+      "A 50Hz mains hum harmonic series is visible on the low end (50Hz, 100Hz, 150Hz).",
+      "The noise floor drops off sharply above 12–13kHz, consistent with 1960s German tape stock formulations.",
+      "Subtle 3Hz flutter sidebands indicate mechanical tape transport speed variations."
+    ]
+  },
+  {
+    "id": 19,
+    "puzzleDate": "2026-10-01",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-01.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 1971,
+    "answerDecade": "1970s",
+    "curatorNote": "Indoor ambient capture from 1971. Ferric cassette tape background with Dolby B companding and 60Hz building electrical resonance through solid-state preamps.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1971)",
+    "clues": [
+      "A 60Hz fundamental is dominant on the low-frequency spectrum, pointing to the Americas.",
+      "The noise floor above 10kHz shows subtle dynamic expansion consistent with Dolby B cassette noise reduction.",
+      "Bandwidth rolls off near 14kHz, matching standard ferric oxide cassette formulations."
+    ]
+  },
+  {
+    "id": 20,
+    "puzzleDate": "2026-10-02",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-02.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "easy",
+    "answerYear": 1983,
+    "answerDecade": "1980s",
+    "curatorNote": "Facility room recording from 1983. Digital audio tape (DAT) recording with early 16-bit/44.1kHz anti-aliasing filters and minimal analog hum.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1983)",
+    "clues": [
+      "Flat frequency extension up to 18kHz with no flutter modulation indicates digital audio capture.",
+      "60Hz electrical hum is faint but present at the fundamental frequency.",
+      "A low-level quantisation noise floor at approximately -90dBFS is characteristic of early 16-bit digital PCM recorders."
+    ]
+  },
+  {
+    "id": 21,
+    "puzzleDate": "2026-10-03",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-03.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "hard",
+    "answerYear": 1993,
+    "answerDecade": "1990s",
+    "curatorNote": "Office ambience from 1993. Faint 217Hz TDMA RF pulses from an early 2G mobile phone coupled into the analog audio stage of a MiniDisc or DAT recorder.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1993)",
+    "clues": [
+      "Harmonic interference spikes at 217Hz multiples point to 2G GSM cellular radio transmission burst noise.",
+      "European 50Hz mains cycle is faintly present in background grounding.",
+      "Crisp high-frequency response with absence of tape flutter confirms digital recording era."
+    ]
+  },
+  {
+    "id": 22,
+    "puzzleDate": "2026-10-04",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-04.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 2008,
+    "answerDecade": "2000s",
+    "curatorNote": "Computer workstation environment from 2008. The 120Hz acoustic vibration of a 7200 RPM mechanical hard drive and 1kHz USB polling leakage date this firmly to the desktop PC era.",
+    "source": "Acoustic Chronometer Historical Signal Archive (2008)",
+    "clues": [
+      "A continuous mechanical whine near 120Hz matches a 7200 RPM desktop hard disk drive spindle motor.",
+      "Faint harmonic spikes at exact 1kHz multiples originate from USB bus polling interrupts.",
+      "Very quiet electronic noise floor characteristic of integrated motherboard audio codecs."
+    ]
+  },
+  {
+    "id": 23,
+    "puzzleDate": "2026-10-05",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-05.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "easy",
+    "answerYear": 2015,
+    "answerDecade": "2010s",
+    "curatorNote": "Urban room ambience from 2015. Recorded on a smartphone with dual-microphone noise filtering and high-frequency digital compensation curves.",
+    "source": "Acoustic Chronometer Historical Signal Archive (2015)",
+    "clues": [
+      "Extremely flat digital spectrum extending to 20kHz with virtually zero tape or analog hiss.",
+      "Subtle high-frequency sibilance boost between 6kHz and 8kHz characteristic of MEMS smartphone microphones.",
+      "Near total absence of mains hum reflects modern switching power supplies with active power factor correction."
+    ]
+  },
+  {
+    "id": 24,
+    "puzzleDate": "2026-10-06",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-06.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 1943,
+    "answerDecade": "1940s",
+    "curatorNote": "Acoustic ambient capture from 1943. The sharp 4.5kHz ceiling and lacquer disc surface clicks are telltale markers of post-war acetate transcription before magnetic tape became standard.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1943)",
+    "clues": [
+      "The audio cuts off sharply above 4.5kHz — characteristic of lacquer acetate disc recording and carbon microphones.",
+      "A 60Hz transformer hum with audible second harmonic points to North American recording equipment.",
+      "Surface noise and random stylus clicks indicate a direct-to-disc lacquer master transcription."
+    ]
+  },
+  {
+    "id": 25,
+    "puzzleDate": "2026-10-07",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-07.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "medium",
+    "answerYear": 1955,
+    "answerDecade": "1950s",
+    "curatorNote": "Radio broadcast room tone from 1955. Early full-track magnetic tape formulation introduces steady high-frequency hiss, while European 50Hz AC mains power bleeds through the tube preamp stage.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1955)",
+    "clues": [
+      "A pronounced 50Hz fundamental and 100Hz second harmonic indicate European broadcast mains electricity.",
+      "The noise floor rises steeply above 7kHz with steady granular texture — early reel-to-reel magnetic tape.",
+      "A subtle 2.2Hz pitch wobble (flutter) reveals the mechanical capstan drive of a 1950s tape transport."
+    ]
+  },
+  {
+    "id": 26,
+    "puzzleDate": "2026-10-08",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-08.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "easy",
+    "answerYear": 1961,
+    "answerDecade": "1960s",
+    "curatorNote": "Recording studio environment from 1961. Captured through vacuum tube mixing console preamps onto 1/4\" magnetic tape running at 15 ips, producing gentle tape saturation and 50Hz mains leakage.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1961)",
+    "clues": [
+      "A 50Hz mains hum harmonic series is visible on the low end (50Hz, 100Hz, 150Hz).",
+      "The noise floor drops off sharply above 12–13kHz, consistent with 1960s German tape stock formulations.",
+      "Subtle 3Hz flutter sidebands indicate mechanical tape transport speed variations."
+    ]
+  },
+  {
+    "id": 27,
+    "puzzleDate": "2026-10-09",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-09.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "hard",
+    "answerYear": 1973,
+    "answerDecade": "1970s",
+    "curatorNote": "Indoor ambient capture from 1973. Ferric cassette tape background with Dolby B companding and 60Hz building electrical resonance through solid-state preamps.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1973)",
+    "clues": [
+      "A 60Hz fundamental is dominant on the low-frequency spectrum, pointing to the Americas.",
+      "The noise floor above 10kHz shows subtle dynamic expansion consistent with Dolby B cassette noise reduction.",
+      "Bandwidth rolls off near 14kHz, matching standard ferric oxide cassette formulations."
+    ]
+  },
+  {
+    "id": 28,
+    "puzzleDate": "2026-10-10",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-10.wav",
+    "audioStartOffset": 1.5,
+    "region": "Americas (60Hz)",
+    "difficulty": "medium",
+    "answerYear": 1981,
+    "answerDecade": "1980s",
+    "curatorNote": "Facility room recording from 1981. Digital audio tape (DAT) recording with early 16-bit/44.1kHz anti-aliasing filters and minimal analog hum.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1981)",
+    "clues": [
+      "Flat frequency extension up to 18kHz with no flutter modulation indicates digital audio capture.",
+      "60Hz electrical hum is faint but present at the fundamental frequency.",
+      "A low-level quantisation noise floor at approximately -90dBFS is characteristic of early 16-bit digital PCM recorders."
+    ]
+  },
+  {
+    "id": 29,
+    "puzzleDate": "2026-10-11",
+    "audioUrl": "/audio/puzzles/puzzle-2026-10-11.wav",
+    "audioStartOffset": 1.5,
+    "region": "EU/Asia (50Hz)",
+    "difficulty": "easy",
+    "answerYear": 1994,
+    "answerDecade": "1990s",
+    "curatorNote": "Office ambience from 1994. Faint 217Hz TDMA RF pulses from an early 2G mobile phone coupled into the analog audio stage of a MiniDisc or DAT recorder.",
+    "source": "Acoustic Chronometer Historical Signal Archive (1994)",
+    "clues": [
+      "Harmonic interference spikes at 217Hz multiples point to 2G GSM cellular radio transmission burst noise.",
+      "European 50Hz mains cycle is faintly present in background grounding.",
+      "Crisp high-frequency response with absence of tape flutter confirms digital recording era."
+    ]
+  }
+]

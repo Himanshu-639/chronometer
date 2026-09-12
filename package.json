@@ -6,12 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate": "npx tsx scripts/generate-puzzles.ts",
+    "generate:30": "npx tsx scripts/generate-puzzles.ts 30",
+    "generate:60": "npx tsx scripts/generate-puzzles.ts 60",
+    "import:real": "npx tsx scripts/import-real-audio.ts 30",
+    "populate:wikimedia": "npx tsx scripts/populate-from-wikimedia.ts 15",
+    "populate": "npx tsx scripts/populate-puzzles.ts",
+    "populate:30": "npx tsx scripts/populate-puzzles.ts 30",
+    "populate:60": "npx tsx scripts/populate-puzzles.ts 60"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
+    "framer-motion": "^13.2.0",
     "next": "16.3.5",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "wavesurfer.js": "^7.12.12"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -21,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
     "tailwindcss": "^4",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   }
 }

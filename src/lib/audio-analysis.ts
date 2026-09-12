@@ -31,18 +31,69 @@ export function getAudioContext(): AudioContext {
   return _audioContext;
 }
 
+// ── Audio Proxy ───────────────────────────────────────────────────────────────
+
+/**
+ * Routes external audio URLs through our /api/audio-proxy to bypass CORS.
+ * Local/relative URLs are returned unchanged.
+ */
+export function proxyAudioUrl(url: string): string {
+  if (!url) return url;
+  // Already a relative or same-origin URL — no proxy needed
+  if (url.startsWith('/') || (typeof window !== 'undefined' && url.startsWith(window.location.origin))) return url;
+  return `/api/audio-proxy?url=${encodeURIComponent(url)}`;
+}
+
 // ── Buffer Loading ────────────────────────────────────────────────────────────
 
 /**
  * Fetches an audio URL and decodes it into an AudioBuffer.
- * Uses the shared AudioContext.
+ * Automatically routes external URLs through the CORS proxy.
+ *
+ * @param url             Any public audio URL (Freesound preview, Internet Archive, etc.)
+ * @param startOffset     Seconds into the file to start from (default 0)
+ * @param durationSecs    How many seconds to extract (default 5). Pass Infinity to load all.
+ *
+ * The returned AudioBuffer contains ONLY the requested window — no trimming needed on your end.
  */
-export async function loadAudioBuffer(url: string): Promise<AudioBuffer> {
+export async function loadAudioBuffer(
+  url: string,
+  startOffset = 0,
+  durationSecs = 5,
+): Promise<AudioBuffer> {
   const ctx = getAudioContext();
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`Failed to fetch audio: ${response.status}`);
+
+  // Route through proxy if external URL
+  const fetchUrl = proxyAudioUrl(url);
+
+  const response = await fetch(fetchUrl);
+  if (!response.ok) throw new Error(`Failed to fetch audio: ${response.status} ${fetchUrl}`);
   const arrayBuffer = await response.arrayBuffer();
-  return ctx.decodeAudioData(arrayBuffer);
+
+  // Decode the full file
+  const fullBuffer = await ctx.decodeAudioData(arrayBuffer);
+
+  // If no slicing needed, return as-is
+  if (startOffset === 0 && durationSecs === Infinity) return fullBuffer;
+
+  // ── Slice the buffer to [startOffset, startOffset + durationSecs] ──────────
+  const sampleRate = fullBuffer.sampleRate;
+  const startSample = Math.floor(startOffset * sampleRate);
+  const endSample = Math.min(
+    Math.floor((startOffset + durationSecs) * sampleRate),
+    fullBuffer.length,
+  );
+  const sliceLength = endSample - startSample;
+
+  const numChannels = fullBuffer.numberOfChannels;
+  const sliced = ctx.createBuffer(numChannels, sliceLength, sampleRate);
+
+  for (let ch = 0; ch < numChannels; ch++) {
+    const src = fullBuffer.getChannelData(ch).subarray(startSample, endSample);
+    sliced.copyToChannel(src, ch, 0);
+  }
+
+  return sliced;
 }
 
 // ── Playback ──────────────────────────────────────────────────────────────────

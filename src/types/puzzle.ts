@@ -2,11 +2,13 @@
 
 export interface Puzzle {
   id: number;
-  puzzleDate: string;        // ISO date string "YYYY-MM-DD"
-  audioUrl: string;          // Public URL to the audio clip (5s, stripped metadata)
-  region: string;            // "EU/Asia (50Hz)" | "Americas (60Hz)"
+  puzzleDate: string;           // ISO date string "YYYY-MM-DD"
+  audioUrl: string;             // Direct URL to source audio (Freesound, Internet Archive, etc.)
+  audioStartOffset: number;     // Seconds into the file where the 5-second window starts
+  region: string;               // "EU/Asia (50Hz)" | "Americas (60Hz)"
   difficulty: PuzzleDifficulty;
   clues: [string, string, string];  // Always exactly 3 clues, unlocked progressively
+  totalPuzzles?: number;        // Total available samples in database/manifest
 }
 
 /** What the server reveals only AFTER a guess is submitted */
